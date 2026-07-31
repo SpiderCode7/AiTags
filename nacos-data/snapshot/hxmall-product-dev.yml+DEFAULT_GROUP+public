@@ -1,0 +1,60 @@
+# spring配置
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/hxmall_product?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+pymysql:
+  host: 127.0.0.1
+  port: 3307
+  username: root
+  password: "123456"
+  datebase: hxmall_product
+
+deepseek:
+  api-key: sk-46754099f2b4431f9f9998c001d02491
+  base-url: https://api.deepseek.com
+  model: deepseek-chat
+  temperature: 0.2
+  max-tokens: 1200
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  type-aliases-package: com.hxmall.domain
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+  params: count=countSql
+
+# springdoc配置
+springdoc:
+  gatewayUrl: http://localhost:8080/${spring.application.name}
+  api-docs:
+    # 是否开启接口文档
+    enabled: true
+  info:
+    # 标题
+    title: '商品模块接口文档'
+    # 描述
+    description: '商品模块接口描述'
+    # 作者信息
+    contact:
+      name: Hxy
+      url: https://ruoyi.vip
+
+knife4j:
+  enable: true
